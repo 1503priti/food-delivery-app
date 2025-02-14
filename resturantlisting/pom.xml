@@ -55,6 +55,18 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.5.5.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct-processor -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.5.5.Final</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -69,13 +81,6 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
-			<dependency>
-				<groupId>org.mapstruct</groupId>
-				<artifactId>mapstruct</artifactId>
-				<version>1.5.5.Final</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
@@ -88,21 +93,22 @@
 					<source>23</source>
 					<target>23</target>
 					<annotationProcessorPaths>
-						<path>
+						<!--<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.8.36</version>
+							<version>1.18.36</version>
 						</path>
-						<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+						&lt;!&ndash; https://mvnrepository.com/artifact/org.mapstruct/mapstruct &ndash;&gt;
 						<path>
 							<groupId>org.mapstruct</groupId>
 							<artifactId>mapstruct</artifactId>
 							<version>1.5.5.Final</version>
-						</path>
-						<path>
-
-						</path>
-
+						</path>-->
+							<!--<path>
+								<groupId>org.projectlombok</groupId>
+								<artifactId>lombok-mapstruct-binding</artifactId>
+								<version>0.2.0</version>
+							</path>-->
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
