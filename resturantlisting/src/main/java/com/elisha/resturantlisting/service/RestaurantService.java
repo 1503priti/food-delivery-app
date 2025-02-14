@@ -5,9 +5,12 @@ import com.elisha.resturantlisting.entity.Restaurant;
 import com.elisha.resturantlisting.mapper.RestaurantMapper;
 import com.elisha.resturantlisting.repo.RestaurantRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -31,5 +34,17 @@ public class RestaurantService {
     public RestaurantDTO addRestaurant(RestaurantDTO restaurantDTO) {
         Restaurant saveRestaurant = restaurantRepo.save(RestaurantMapper.INSTANCE.mapRestaurantDTOToRestaurant(restaurantDTO));
      return RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(saveRestaurant);
+    }
+
+    public ResponseEntity<RestaurantDTO> fetchdRestaurantById(Integer id) {
+        Optional<Restaurant> restaurant =restaurantRepo.findById(id);
+       if(restaurant.isPresent())
+           return new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant.get()), HttpStatus.OK);
+           else{
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
+        /*return restaurant
+                .map(value -> new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant.get()), HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));*/
     }
 }
