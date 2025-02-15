@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "977c3559-6dec-4d3e-9284-7d0d6daff814",
+		"name": "Food Delivery App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42330936"
+	},
+	"item": [
+		{
+			"name": "Create Restaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Restaurant 1\",\r\n    \"address\":\"Address Line 1\",\r\n    \"city\":\"Pune\",\r\n    \"restaurantDescription\": \"Restaruant Descripttion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/restaurant/addRestaurant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"restaurant",
+						"addRestaurant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Restaurant By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Restaurant 1\",\r\n    \"address\":\"Address Line 1\",\r\n    \"city\":\"Pune\",\r\n    \"restaurantDescription\": \"Restaruant Descripttion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/restaurant/fetchById/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"restaurant",
+						"fetchById",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all Restaurants",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Restaurant 1\",\r\n    \"address\":\"Address Line 1\",\r\n    \"city\":\"Pune\",\r\n    \"restaurantDescription\": \"Restaruant Descripttion\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9091/restaurant/fetchAllRestaurants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9091",
+					"path": [
+						"restaurant",
+						"fetchAllRestaurants"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
