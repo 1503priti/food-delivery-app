@@ -21,6 +21,7 @@ public class RestaurantService {
 
     public List<RestaurantDTO> findAllRestaurant() {
         List<Restaurant>  restaurants = restaurantRepo.findAll();
+
         // map it to list of DTOs
         /*List<RestaurantDTO>  restaurantDTOList =  restaurants.stream()
                                                          .map(restaurant -> RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant))
