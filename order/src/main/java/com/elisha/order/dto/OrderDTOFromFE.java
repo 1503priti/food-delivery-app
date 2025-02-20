@@ -5,13 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class OrderDTO {
 
-    private Integer orderId;
-    private List<FoodItemsDTO> foodItemsDTOList;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderDTOFromFE {
+   private List<FoodItemsDTO> foodItemsList;
+    private Integer userId;
     private Restaurant restaurant;
-    private UserDTO userDTO;
 }
