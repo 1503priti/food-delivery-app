@@ -37,7 +37,7 @@ public class SequenceGenerator {
             Sequence.class);
     return !Objects.isNull(counter) ? counter.getSequence() : 1;
 }*/
-    
+
 }
 
 
