@@ -27,6 +27,7 @@ public class RestaurantService {
                                                          .map(restaurant -> RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant))
                                                          .collect(Collectors.toList()
         return restaurantDTOList;*/
+       // restaurantRepo.findAll().stream().map(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(Restaurant restaurant));
         return restaurants.stream().map(RestaurantMapper.INSTANCE::mapRestaurantToRestaurantDTO).collect(Collectors.toList());
 
 
@@ -37,13 +38,9 @@ public class RestaurantService {
      return RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(saveRestaurant);
     }
 
-    public ResponseEntity<RestaurantDTO> fetchdRestaurantById(Integer id) {
+    public ResponseEntity<RestaurantDTO> fetchRestaurantById(Integer id) {
         Optional<Restaurant> restaurant =restaurantRepo.findById(id);
-       if(restaurant.isPresent())
-           return new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant.get()), HttpStatus.OK);
-           else{
-            return new ResponseEntity<>(null, HttpStatus.OK);
-        }
+        return restaurant.map(value -> new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(value), HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));
         /*return restaurant
                 .map(value -> new ResponseEntity<>(RestaurantMapper.INSTANCE.mapRestaurantToRestaurantDTO(restaurant.get()), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(null, HttpStatus.NOT_FOUND));*/
