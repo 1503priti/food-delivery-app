@@ -48,7 +48,19 @@ public class RestaurantControllerTest {
         // verify that the service method was called
         verify(restaurantService, times(1)).findAllRestaurant();
 
-
-
+    }
+    @Test
+    public void testSaveRestaurant(){
+           // create a mock restaurant to be saved
+        RestaurantDTO mockRestaurant =  new RestaurantDTO(1, "Restaurant 1", "Address 1", "City 1", "Desc 1");
+        // Mock the service behaviour
+        when(restaurantService.addRestaurant(mockRestaurant)).thenReturn(mockRestaurant);
+        // call the controller method
+        ResponseEntity<RestaurantDTO> response = restaurantController.saveRestaurant(mockRestaurant);
+        //verify the response
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(mockRestaurant, response.getBody());
+        // verify that the service method was called
+        verify(restaurantService, times(1)).addRestaurant(mockRestaurant);
     }
 }
